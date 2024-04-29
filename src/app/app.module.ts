@@ -14,6 +14,10 @@ import { TranslateComponent } from './translate/translate.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { GetproductComponent } from './getproduct/getproduct.component';
+import { DelproductComponent } from './delproduct/delproduct.component';
+
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http)
@@ -23,7 +27,7 @@ export function HttpLoaderFactory(http:HttpClient){
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,PercentagePipe, ReactiveformsComponent, TranslateComponent
+    RegisterComponent,PercentagePipe, ReactiveformsComponent, TranslateComponent, AddproductComponent, GetproductComponent, DelproductComponent
   ],
   imports: [
     BrowserModule,

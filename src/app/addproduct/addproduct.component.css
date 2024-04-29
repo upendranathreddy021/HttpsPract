@@ -1,0 +1,120 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the form area */
+  form {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  /* Style for each form field */
+  div {
+    margin-bottom: 20px;
+  }
+  
+  /* Label styles */
+  label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input field styles */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  /* Hover and focus states for inputs */
+  input[type="text"]:hover,
+  input[type="text"]:focus {
+    border-color: #0056b3;
+  }
+  
+  /* Style for the submit button */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  /* Disabled button style */
+  button:disabled {
+    background-color: #cccccc;
+  }
+  
+  /* Error message styles */
+  div div {
+    color: #ff0000;
+    font-size: 14px;
+  }
+  
+  /* Adjust overall form layout and spacing */
+  form {
+    margin-top: 20px;
+  }
+
+
+  
+  /* Container for the product list */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Each product item */
+.product-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Last product item border remove */
+.product-item:last-child {
+  border-bottom: none;
+}
+
+/* Product name styling */
+.product-name {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Product price styling */
+.product-price {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+}

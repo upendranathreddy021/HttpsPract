@@ -1,0 +1,32 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" formControlName="productName">
+      <!-- <div *ngIf="productForm.get('productName')?.errors?.required && productForm.get('productName')?.touched">
+        Product name is required.
+      </div> -->
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="text" id="price" formControlName="price">
+      <!-- <div *ngIf="productForm.get('price')?.errors?.required && productForm.get('price')?.touched">
+        Price is required.
+      </div>
+      <div *ngIf="productForm.get('price')?.errors?.pattern && productForm.get('price')?.touched">
+        Price must be a number.
+      </div> -->
+    </div>
+    <button type="submit" [disabled]="productForm.invalid">{{editMode ? 'Update Product' : 'Add Product'}}</button>
+  </form>
+  <div class="productData">
+    <div *ngFor="let product of productData" class="product-item">
+        <!-- <div class="product-price">${{ product.name }}</div> -->
+
+      <div class="product-name">{{ product.productName }}</div>
+      <div class="product-price">${{ product.price }}</div>
+
+      <input type="button" value="Edit" (click)="editProduct(product.id,product.productName,product.price)">
+      <input type="button" value="Delete"  (click)="delProd(product.id)">
+    </div>
+  </div>
+  

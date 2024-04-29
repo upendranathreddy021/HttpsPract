@@ -21,7 +21,7 @@ name:"upendra",email:"upendra@gmail.com",password:"123"
 }
 
 getdata(){
-  this.http.get("https://jsonplaceholder.typicode.com/comments").subscribe((data)=>{
+  this.http.get("https://angularapi-5d3a7-default-rtdb.firebaseio.com/products.json").subscribe((data)=>{
     console.log(data)
   })
 }
