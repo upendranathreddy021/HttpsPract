@@ -3,14 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {HttpClient, HttpClientModule } from '@angular/common/http';
+import { PercentPipe } from '@angular/common';
+import { PercentagePipe } from './percentage.pipe';
+import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateComponent } from './translate/translate.component';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http)
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,PercentagePipe, ReactiveformsComponent, TranslateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,TranslateModule.forRoot({
+      loader:{provide:TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+    }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

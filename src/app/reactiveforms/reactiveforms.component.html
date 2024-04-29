@@ -1,0 +1,31 @@
+<p>reactiveforms works!</p>
+<div class="container">
+    <div class="content">
+           <form class="content__form" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <div class="content__inputs">
+          <label>
+            <input required="" type="text" required formControlName="email"/>
+            <span>Phone number, username, or email</span>
+          </label>
+          <div *ngIf="!reactiveForm.get('email')?.valid && reactiveForm.get('email')?.touched">
+            <small>Enter Valid Email</small>
+          </div>
+          <label>
+            <input required="" type="password" required formControlName="password">
+            <span>Password</span>
+          </label>
+          
+        </div>
+        <input type="submit" value="Submit" [disabled]="!reactiveForm.valid"/>
+      </form>
+      <div class="content__or-text">
+        <span></span>
+        <span>OR</span>
+        <span></span>
+      </div>
+      <div class="content__forgot-buttons">
+       
+        <button>Forgot password?</button>
+      </div>
+    </div>
+  </div>
