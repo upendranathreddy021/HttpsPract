@@ -1,10 +1,12 @@
-<p>translate works!</p>
-
-
-
+<div class="translate" style="display: flex;align-items: center;justify-content: space-evenly;background-color: pink;height: 9vh;">
+<p>{{"home"|translate}}</p>
+<p>{{"contactUs"|translate}}</p>
+<p>{{"aboutUs"|translate}}</p>
+<p>{{"career"|translate}}</p>
 
 <select name="translate" id="translate" (change)="changeLang($event)">
 
     <option [selected]="lang==='en'" value="en">English</option>
-    <option [selected]="lang==='fr'" value="fr">french</option>
+    <option [selected]="lang==='es'" value="es">Espanol</option>
 </select>
+</div>

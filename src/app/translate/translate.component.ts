@@ -8,9 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TranslateComponent implements OnInit {
 
-  constructor(private translateservice:TranslateService) { 
-    this.translateservice.setDefaultLang('en');
-    this.translateservice.use(set)
+  constructor(private translate:TranslateService) { 
+    this.translate.setDefaultLang('en');
+    
   }
 lang=''
   ngOnInit(): void {
@@ -19,6 +19,7 @@ lang=''
 
   changeLang(lang:any){
 const selectLang=lang.target.value
+this.translate.use(selectLang)
   }
 
 }
