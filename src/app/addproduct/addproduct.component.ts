@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit,DoCheck } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiServiceService } from '../Services/api-service.service';
@@ -7,16 +7,18 @@ import { ApiServiceService } from '../Services/api-service.service';
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css']
 })
-export class AddproductComponent implements OnInit {
+export class AddproductComponent implements OnInit,DoCheck {
+ngDoCheck(): void {
+  {
+    this.productData
+  }
+}
 
   currentId:any;
-
   productData:any=[]
 
   ngOnInit(): void {
     this.productData=[]
-    
-
     this.productservice.getProducts().subscribe(
       (data) => {
         
@@ -39,7 +41,7 @@ export class AddproductComponent implements OnInit {
     console.log(prod,"check del")
 this.productservice.deleteProd(prod)
 
-
+this.ngDoCheck()
   
 }
 
@@ -59,15 +61,16 @@ if(!this.editMode){
    
    
     this.productservice.createProduct(this.productForm.value)
-    console.log('Form Data:', this.productForm.value);
+    //console.log('Form Data:', this.productForm.value);
 
-
+    this.ngDoCheck()
     this.productForm.reset()
 }
 else{
   this.productservice.editProduct(this.currentId, this.productForm.value).subscribe({
     next: (res) => console.log(res, "from put"),
     error: (err) => console.error("Error updating product:", err)
+    
   });
 
 
@@ -76,7 +79,7 @@ else{
    
   this.editMode=false
   this.productForm.reset()
-  
+  this.ngDoCheck()
 }
     
   }
@@ -94,6 +97,9 @@ else{
 
   }
 
+deleteAll(){
 
+  this.productservice.deleteAll()
+}
 
 }

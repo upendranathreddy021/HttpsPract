@@ -11,6 +11,7 @@ export class ApiServiceService {
   constructor(private http:HttpClient) { }
 
 
+ 
 
   createProduct(data: any){
     const headers = new HttpHeaders({ 'my-header': 'hello-world' });
@@ -76,11 +77,20 @@ console.log(data,"checking data in post")
         });
 
     }
+
+    deleteAll(){
+      const headers=new HttpHeaders({"my-header":"hello-world"})
+
+      this.http.delete("https://angularapi-5d3a7-default-rtdb.firebaseio.com/products",{headers})
+
+    }
     
     editProduct(id: string, value: any): Observable<any> {
       const headers = new HttpHeaders({ 'my-header': 'hello-world' });
       return this.http.put(`https://angularapi-5d3a7-default-rtdb.firebaseio.com/products/${id}.json`, value, { headers });
     }
+
+
 
 
 
